@@ -6,6 +6,7 @@ from queue import Queue, Empty
 from transformers import GPT2Tokenizer, GPT2LMHeadModel, Trainer, TrainingArguments
 import torch
 from torch.utils.data import Dataset
+import random
 
 arduino = serial.Serial('COM7', 9600, timeout=0.1)
 
@@ -36,14 +37,23 @@ def manage_data():
             time.sleep(0.1)
 
 def get_prompt_from_index(index):
+    # Mapping index to a list of tuples, each containing a prompt and a boolean for pretrained usage
     prompt_map = {
-        1: ("i had a nice walk in the park today", True),
-        2: ("hey man hows it going", False),
-        3: ("skibidi toilet", False),
-        4: ("skibidi toilet", False)
+        1: [("I had a nice walk in the park today", True), ("It was sunny during my walk in the park", True)],
+        2: [("skibidi toilet", False), ("bathroom dance party", False)],
+        3: [("skibidi toilet", False), ("bathroom dance party", False)],
+        4: [("skibidi toilet", False), ("bathroom dance party", False)]
     }
-    prompt, use_pretrained = prompt_map.get(index, ("skibidi toilet", False))
-    return prompt, use_pretrained
+    
+    # Get the list of options for the provided index, or use a default list with one entry
+    options = prompt_map.get(index, [("skibidi toilet", False)])
+    
+    # Randomly choose one tuple (prompt and pretrained flag) from the options list
+    selected_prompt, use_pretrained = random.choice(options)
+
+    # Return the selected prompt and whether to use a pretrained model
+    return selected_prompt, use_pretrained
+
 
 
 def load_model(use_pretrained=False):
