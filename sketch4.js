@@ -24,7 +24,7 @@ let imageWidth = 800; // Width of each image
 let imageHeight = 150; // Height of each image
 let displayedImages = []; // Array to store displayed images and their positions
 let video;
-let brainrot=31; // Default initial value for brainrot
+let brainrot=brainrot; // Default initial value for brainrot
 let socket;
 let fonts = []; // Array to store fonts
 let brain_rot_font = 0.2;
