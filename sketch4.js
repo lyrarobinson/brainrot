@@ -16,7 +16,7 @@ let wordColors = []; // Array to store colors of each word
 let wordFonts = [];
 
 let lastImageUpdateTime = 0;
-const numImages = 5; // Number of images in the folder
+const numImages = 85; // Number of images in the folder
 let images = [];
 let imageX = 0;
 let imageY = 0;
