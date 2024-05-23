@@ -39,10 +39,10 @@ def manage_data():
 def get_prompt_from_index(index):
     # Mapping index to a list of tuples, each containing a prompt and a boolean for pretrained usage
     prompt_map = {
-        1: [("I had a nice walk in the park today", True), ("It was sunny during my walk in the park", True)],
-        2: [("skibidi toilet", False), ("bathroom dance party", False)],
-        3: [("skibidi toilet", False), ("bathroom dance party", False)],
-        4: [("skibidi toilet", False), ("bathroom dance party", False)]
+        1: [("I had a nice walk in the park today", True), ("It was sunny during my walk in the park", True), ("I touched some grass today and", True)],
+        2: [("skibidi toilet", False), ("have you seen that new movie?", False), ("Bro you're never gonna believe this", False)],
+        3: [("skibidi toilet", False), ("bro this is crazy but", False)],
+        4: [("skibidi toilet", False), ("Is mewing to rizzmaxx goated", False), ("Obama sus skibidi", False)]
     }
     
     # Get the list of options for the provided index, or use a default list with one entry
